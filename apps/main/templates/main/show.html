@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <script src="{% static 'main/js/main.js' %}"></script>
+</head>
+<body>
+    <h1>Details for {{ book.title }}</h1>
+    <a href="/book/{{ book.id }}/edit">Edit this Book</a>
+    <a href="/book/{{ book.id }}/delete">Delete this Book</a>
+</body>
+</html>

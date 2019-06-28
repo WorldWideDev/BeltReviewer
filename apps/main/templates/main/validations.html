@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <script src="{% static 'main/js/main.js' %}"></script>
+</head>
+<body>
+    {% for message in messages %}
+    {% if message.extra_tags != None %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% endfor %}
+    <h2>Register</h2>
+    <form action="/validate/reg" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name"> 
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name"> 
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email"> 
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="password"> 
+        </div>
+        <button>Register</button>
+    </form>
+    <hr>
+    {% for message in messages %}
+    {% if message.extra_tags == None %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% endfor %}
+    <h2>Register</h2>
+    <h2>Login</h2>
+    <form action="/validate/log" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email"> 
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" name="password"> 
+        </div>
+        <button>Login</button>
+    </form>
+</body>
